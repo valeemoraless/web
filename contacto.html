@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotos</title>
-
-    <link rel="icon" href="imagenes/favicon.png" type="image/png" sizes="16x16">
-    <!--se usa para poner el logo en la pagina-->
+    <title>Contacto</title>
+    <link rel="icon" href="imagenes/favicon.png" type="image/png" sizes="16X16">
     <link rel="stylesheet" href="css/miestilos.css">
-    
-    
 </head>
+
 <body>
     <div class="titulo">
         <header>
@@ -19,14 +17,134 @@
     </div>
     <main>
         <div id="navegacion">
-                <nav>
-                    <a href="index.html"> Inicio </a> | 
-                    <a href="fotos.html"> Fotos </a> | 
-                    <a href="videos.html"> Videos </a> | 
-                    <a href="contacto.html"> Contacto </a>
-                </nav>
+            <nav>
+                <a href="index.html"> Inicio </a> |
+                <a href="fotos.html"> Fotos </a> |
+                <a href="videos.html"> Videos </a> |
+                <a href="contacto.html"> Contacto </a> |
+            </nav>
         </div>
+        <h3>informacion personal</h3>
+        <br>
+        <div>
+            <form id="contacto" name="Formulario" method="get" action="procesar.html">
+                <p>
+                    <label for="nombre">Nombre:
+                        <!-- <input>-este elemento crea un campo de entrada. -->
+                        <!-- maxlength-Este atributo especifica el maximo nùmero de csaracteres -->
+                        <input type="text" name="nombre" maxlength="15" id="nombre">
+                    </label>
+                </p>
+                <p>
+                    <label for="clave">clave:
+                        <input type="password" name="clave" maxlength="15" id="clave">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Edad: <input type="number" min="13" max="100" name="edad">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Estatura: <input type="range" min="50" max="300" name="Estatura" value="250">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Correo: <input type="email" name="correo">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Teléfono: <input type="tel" name="telefono" placeholder="506-8765-4321">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        sitio web: <input type="url" name="sitioweb">
+                    </label>
+                </p>
+                <div>
+                    <h3>años de experiencia: </h3>
+                    <br>
+                    <p>
+                        <label>Experiencia:
+                            <input type="radio" name="experiencia" 
+                            value="1" checked> 1 año
+                       
+                           
+                            <input type="radio" name="experiencia" 
+                            value="2" checked> 2 año
+
+                            <input type="radio" name="experiencia" 
+                            value="3" checked> 3 año
+
+                            <input type="radio" name="experiencia" 
+                            value="más de 3" checked> más de 3 años
+                        </label>
+                    </p>
+                    <h3>Fecha de nacimiento</h3>
+                    <!-- date-Este valor genera un campo de entrada para insertar una fecha.-->
+                     <input id="calendario" type="date" name="fecha" >
+                </div>
+                <div>
+                    <h3>Color</h3>
+                    <!-- color-Este valor genera un campo de entrada para insertar un color-->
+                     <input type="color" name="micolor" value="#99BB00">
+                </div>
+                <div>
+                    <!-- este elemento crea un campo de entrada para insertar multiples lineas de texto.
+                     el tamaño se puede declarar enteros y usando los atributos de cols y rows-->
+                    <p>
+                        <label>Texto: <textarea name="texto"
+                            cols="50" rows="6"></textarea>
+                        </label>
+                    </p>
+                </div>
+                <div>
+                    <!-- <select>-- Este elemento crea una lista de opciones que el usuario puede elegir.
+                        Trabaja junto con el elemento <option> para definir cada opcion-->
+                    <label for="listado">Libros: </label>
+                    <select name="libro" id="listado">
+                        <option value="1">IT</opcion>
+                        <option value="2">Carrie</opcion>
+                        <option value="3">El resplandor</opcion>
+                        <option value="4">Misery</opcion>
+                    </select>
+                </div>
+                <div>
+                    <!-- submit--Este valor genera un boton para enviar el formulario -->
+                     <p><input type="submit" value="Enviar"></p>
+                </div>
+            </form>
+        </div>
+
     </main>
-    
+    <footer>
+        <address>Alajuela, Costa Rica</address>
+        <small>&copy; Derechos Reservados 2024</small>
+    </footer>
 </body>
+
 </html>
+
+<script>
+    //creo objeto date para obtener la fecha y hora actual
+    var fechaActual = new Date();
+
+    var dia = fechaActual.getDate();//obtengo el dia
+    var mes = fechaActual.getMonth()+1;//obtengo el mes
+    var año =fechaActual.getFullYear();//obtengo el año
+
+    if(mes<10){
+        mes="0"+mes
+    }
+
+    if(dia<10){
+        dia="0"+dia
+    }
+    var fechaFormateada = año+"-"+mes+"-"+dia
+    document.getElementById('calendario').value=fechaFormateada
+
+</script>
